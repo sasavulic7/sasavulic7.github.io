@@ -1,0 +1,591 @@
+body,
+html {
+  height: 100%;
+  margin: 0;
+  /* background-image: url(../slike/poz.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover; */
+}
+
+:root {
+  --primary-color: #4caf50;
+  --secondary-color: #333;
+  --text-color: #333;
+  --background-color: #f4f4f4;
+  --hover-color: #45a049;
+}
+
+.navbar {
+  background-color: var(--secondary-color);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+}
+
+.nav-links li a {
+  transition: color 0.3s ease;
+}
+
+.nav-links li a:hover {
+  color: var(--primary-color);
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.containers {
+  /* max-width: 1200px; */
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  /* margin-bottom: 30%; */
+}
+
+.containers img {
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.telo {
+  margin-top: 5%;
+}
+
+.logo {
+  margin: 0;
+}
+
+.nav-links {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-links li {
+  display: inline;
+  margin-right: 20px;
+}
+
+.nav-links li:last-child {
+  margin-right: 0;
+}
+
+.nav-links li a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.nav-links li a:hover {
+  color: #ff0;
+}
+
+.left-section h1 {
+  text-align: center;
+  color: rgb(0, 0, 0);
+  padding-top: 30%;
+  font-size: clamp(6rem, 10vw, 2rem);
+}
+
+.left-section h2 {
+  text-align: center;
+  color: rgb(0, 0, 0);
+  font-size: clamp(3rem, 10vw, 2rem);
+}
+
+.left-section {
+  align-items: center;
+}
+
+/* Stilizacija naslova */
+.naslov {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+/* Stilizacija teksta */
+.tekst {
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+/* Stilizacija slike */
+.slika {
+  width: 100%;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+.kartice-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between; /* Da bi kartice bile razmaknute u kolonama */
+  margin-top: 50%; /* Razmak ispod div-a koji sadrži kartice */
+}
+
+.kartica {
+  width: calc(
+    33% - 20px
+  ); /* Postavljamo širinu kartice tako da budu tri u redu */
+  margin: 10px; /* Margin između kartica */
+  padding: 20px;
+  border: 1px solid #ccc; /* Dodajemo obrub oko kartice */
+  display: inline-block; /* Postavljamo kartice kao inline blokove kako bi bile jedna do druge */
+  box-sizing: border-box; /* Omogućava da padding i border budu uključeni u širinu elementa */
+  background-image: url(../slike/im.jpg);
+  background-position: 0%;
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-size: cover;
+  color: white;
+  height: 650px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.kartica:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.kartica img {
+  max-width: 50%;
+  opacity: 0;
+}
+
+.kartica a {
+  text-decoration: none;
+  color: white;
+}
+
+.kartica h2 {
+  background-color: rgba(0, 0, 0, 0.5);
+  margin-top: 30%; /* Razmak ispod div-a koji sadrži kartice */
+}
+
+.kartica p {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.kartica button {
+  justify-content: center;
+}
+
+.glavniNaslov {
+  text-align: center;
+  font-size: 50px;
+  margin-top: 0%;
+}
+
+.dropbtn {
+  background-color: #4caf50;
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+}
+
+.dropdown {
+  margin-left: 90%;
+}
+
+.dropdown-menu {
+  overflow: scroll;
+  height: 700%;
+}
+
+.flex-container {
+  width: calc(
+    25% - 25px
+  ); /* Postavljamo širinu kartice tako da budu tri u redu */
+  margin: 10px; /* Margin između kartica */
+  padding: 10px;
+  /* border: 1px solid #ccc; Dodajemo obrub oko kartice */
+  display: inline-block; /* Postavljamo kartice kao inline blokove kako bi bile jedna do druge */
+  background-color: #ffffff00;
+  color: rgb(147, 147, 147);
+}
+
+.flex-container button {
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  text-align: center;
+  text-decoration: none;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: #4caf50; /* Zelena boja */
+  color: white;
+  transition: background-color 0.3s;
+}
+
+.flex-container button:hover {
+  background-color: #45a049; /* Tamnija nijansa zelene */
+}
+
+.flex-container button:active {
+  background-color: #3e8e41; /* Još tamnija nijansa zelene */
+}
+
+.flex-container button:disabled {
+  background-color: #dddddd; /* Siva boja */
+  color: #aaaaaa; /* Tamno siva boja */
+  cursor: not-allowed;
+}
+
+.item {
+  text-align: center;
+  margin-bottom: 20px; /* Ovo dodaje razmak između svake kolone */
+}
+
+.item img {
+  max-width: 90%;
+  min-width: 90%;
+  height: 400px;
+}
+
+.item h1,
+.item h2,
+.item h3 {
+  margin-bottom: 5px;
+}
+
+.item p {
+  margin: 0;
+}
+
+.dark-theme-body {
+  background-color: #333;
+}
+
+.dark-theme-text {
+  color: white;
+}
+
+.toggle {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+.toggle input {
+  display: none;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  transition: 0.4s;
+  border-radius: 34px;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  transition: 0.4s;
+  border-radius: 50%;
+}
+
+input:checked + .slider {
+  background-color: #2196f3;
+}
+
+input:checked + .slider:before {
+  transform: translateX(26px);
+}
+
+#pageButtons {
+  margin-bottom: 20px;
+}
+
+#pageButtons button {
+  padding: 10px 15px;
+  margin-right: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f0f0f0;
+  color: #333;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+}
+
+#pageButtons button:hover {
+  background-color: #e0e0e0;
+  color: #000;
+}
+
+#pageButtons button:focus {
+  outline: none;
+}
+
+#pageButtons button.active {
+  background-color: #007bff;
+  color: #fff;
+  border-color: #007bff;
+}
+
+.tema {
+  margin-left: 1%;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+.pagination button {
+  margin: 0 5px;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+.pagination button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+@media (max-width: 600px) {
+  .navbar,
+  .container,
+  .containers,
+  .left-section,
+  .right-section {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .right-section img {
+    margin-left: 0;
+    max-width: 90%;
+  }
+
+  .kartice-container {
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px; /* Smanjiti razmak za mobilne uređaje */
+  }
+
+  .kartica {
+    width: 90%; /* Kartice će zauzimati skoro celu širinu ekrana na mobilnim uređajima */
+    margin: 10px 0; /* Smanjite margin između kartica za mobilne uređaje */
+    height: auto; /* Dozvolite karticama da se prilagode sadržaju */
+  }
+
+  .flex-container {
+    flex-direction: column;
+    align-items: center;
+    width: 100%; /* Kartice će zauzimati celu širinu ekrana na mobilnim uređajima */
+    margin: 10px 0; /* Smanjite margin između kartica za mobilne uređaje */
+  }
+
+  .item img {
+    max-width: 100%;
+    height: auto; /* Dozvolite slikama da se prilagode širini kartice */
+  }
+
+  .pagination {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .pagination button {
+    margin: 5px 0; /* Razmak između dugmića za paginaciju */
+    width: 80%; /* Povećajte širinu dugmića za mobilne uređaje */
+  }
+
+  .tema {
+    margin-left: 5;
+    margin-top: 20px;
+  }
+  .dropdown {
+    margin-left: 38%;
+  }
+
+  body,
+  html {
+    height: 100%;
+    margin: 0;
+    /* background-image: url(../slike/zaFon.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover; */
+  }
+
+  .left-section h1 {
+    text-align: center;
+    color: rgb(255, 255, 255);
+    padding-top: 30%;
+    font-size: clamp(6rem, 10vw, 2rem);
+  }
+
+  .left-section h2 {
+    text-align: center;
+    color: rgb(255, 255, 255);
+    font-size: clamp(3rem, 10vw, 2rem);
+  }
+  .containers {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .telo {
+    margin-top: 5%;
+  }
+}
+
+#btn-knjige {
+  scroll-behavior: smooth;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+.modal-content {
+  background-color: #fefefe;
+  margin: 10% auto;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  width: 90%;
+  max-width: 500px;
+}
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+}
+
+#naruci-forma {
+  display: flex;
+  flex-direction: column;
+}
+
+#naruci-forma label {
+  margin-top: 10px;
+  font-weight: bold;
+}
+
+#naruci-forma input,
+#naruci-forma textarea,
+#naruci-forma button {
+  margin-top: 5px;
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+#naruci-forma textarea {
+  height: 60px;
+  resize: vertical;
+}
+
+#naruci-forma button {
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  padding: 10px;
+  margin-top: 20px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+#naruci-forma button:hover {
+  background-color: #45a049;
+}
+
+.modal-content {
+  animation: slideIn 0.3s ease-out;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateY(-50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+#naruci-forma input:focus,
+#naruci-forma textarea:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 5px rgba(76, 175, 80, 0.5);
+}
+
+button {
+  transition: all 0.3s ease;
+  border-radius: 25px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: bold;
+}
+
+button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.flex-container {
+  animation: fadeIn 0.5s ease-in;
+}

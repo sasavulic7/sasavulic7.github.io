@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="sr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/x-icon" href="slike/logo.png" />
+
+    <title>Bella Kozmetika - Prirodna lepota</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --primary-color: #f8c9d4;
+        --secondary-color: #84b6f4;
+        --text-color: #333;
+        --light-bg: #f9f9f9;
+      }
+
+      body {
+        font-family: "Montserrat", sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: var(--light-bg);
+        color: var(--text-color);
+        line-height: 1.6;
+      }
+
+      header {
+        background-color: white;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        position: fixed;
+        width: 100%;
+        top: 0;
+        z-index: 1000;
+      }
+
+      nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1em 5%;
+      }
+
+      .logo {
+        font-size: 1.5em;
+        font-weight: 600;
+        color: var(--primary-color);
+      }
+
+      nav ul {
+        list-style-type: none;
+        display: flex;
+      }
+
+      nav ul li {
+        margin-left: 20px;
+      }
+
+      nav ul li a {
+        color: var(--text-color);
+        text-decoration: none;
+        transition: color 0.3s ease;
+      }
+
+      nav ul li a:hover {
+        color: var(--secondary-color);
+      }
+
+      .banner {
+        background-image: linear-gradient(
+            rgba(0, 0, 0, 0.3),
+            rgba(0, 0, 0, 0.3)
+          ),
+          url("https://images.unsplash.com/photo-1612817288484-6f916006741a");
+        background-size: cover;
+        background-position: center;
+        height: 60vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        color: white;
+        margin-top: 60px;
+      }
+
+      .banner h2 {
+        font-size: 2.5em;
+        margin-bottom: 20px;
+      }
+
+      .btn {
+        background-color: var(--secondary-color);
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 25px;
+        text-decoration: none;
+        transition: background-color 0.3s ease;
+      }
+
+      .btn:hover {
+        background-color: #6a9ed4;
+      }
+
+      .content {
+        padding: 40px 5%;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      .section-title {
+        text-align: center;
+        margin-bottom: 40px;
+      }
+
+      .products-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 20px;
+      }
+
+      .product {
+        background-color: white;
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease;
+      }
+
+      .product:hover {
+        transform: translateY(-5px);
+      }
+
+      .product img {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+      }
+
+      .product-info {
+        padding: 20px;
+      }
+
+      .product-title {
+        font-weight: 600;
+        margin-bottom: 10px;
+      }
+
+      .product-price {
+        color: var(--secondary-color);
+        font-weight: 600;
+      }
+
+      footer {
+        background-color: var(--primary-color);
+        color: white;
+        text-align: center;
+        padding: 1em;
+        margin-top: 40px;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <div class="logo">Bella Kozmetika</div>
+        <ul>
+          <li><a href="index.html">Početna</a></li>
+          <li><a href="onama.html">O nama</a></li>
+          <li><a href="proizvodi.html">Proizvodi</a></li>
+          <li><a href="kontakt.html">Kontakt</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <div class="banner">
+      <div>
+        <h2>Otkrijte prirodnu lepotu</h2>
+        <a href="proizvodi.html" class="btn">Pogledajte proizvode</a>
+      </div>
+    </div>
+
+    <div class="content">
+      <h2 class="section-title">Dobrodošli u Bella Kozmetiku</h2>
+      <p>
+        Otkrijte našu kolekciju visokokvalitetnih, prirodnih kozmetičkih
+        proizvoda za negu kože. Naši proizvodi su dizajnirani da naglase vašu
+        prirodnu lepotu i brinu o vašoj koži na najbolji mogući način.
+      </p>
+
+      <h3 class="section-title">Istaknuti proizvodi</h3>
+      <div id="featured-products" class="products-grid"></div>
+    </div>
+
+    <footer>
+      <p>&copy; 2024 Bella Kozmetika. Sva prava zadržana.</p>
+    </footer>
+
+    <script>
+      const products = [
+        {
+          name: "Hidratantna krema za lice",
+          price: "24.99 €",
+          image: "https://images.unsplash.com/photo-1601049541289-9b1b7bbbfe19",
+        },
+        {
+          name: "Serum za oči s hijaluronskom kiselinom",
+          price: "19.99 €",
+          image: "https://images.unsplash.com/photo-1608248597279-f99d160bfcbc",
+        },
+        {
+          name: "Maska za lice",
+          price: "9.99 €",
+          image: "slike/maskalice.jpg",
+        },
+        {
+          name: "Ulje za telo",
+          price: "29.99 €",
+          image: "slike/uljetelo.jpg",
+        },
+      ];
+
+      function displayFeaturedProducts() {
+        const container = document.getElementById("featured-products");
+        products.forEach((product) => {
+          const productDiv = document.createElement("div");
+          productDiv.className = "product";
+          productDiv.innerHTML = `
+                    <img src="${product.image}" alt="${product.name}">
+                    <div class="product-info">
+                        <div class="product-title">${product.name}</div>
+                        <div class="product-price">${product.price}</div>
+                    </div>
+                `;
+          container.appendChild(productDiv);
+        });
+      }
+
+      window.onload = displayFeaturedProducts;
+    </script>
+  </body>
+</html>

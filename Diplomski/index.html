@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Online biblioteka</title>
+    <link rel="stylesheet" href="css/css.css" />
+    <link rel="icon" href="slike/logo.jpeg" type="image/x-icon" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+  </head>
+
+  <body>
+    <nav class="navbar">
+      <div class="container">
+        <h1 class="logo">
+          <img src="slike/logo.jpeg" alt="" style="width: 5%" />
+        </h1>
+        <ul class="nav-links">
+          <li><a href="glavniNaslov" id="btn-knjige">Knjige</a></li>
+          <!-- <li><a href="#">Contact</a></li> -->
+        </ul>
+      </div>
+    </nav>
+
+    <div class="containers">
+      <!-- <div class="left-section">
+        <h1>Volis da citas?</h1>
+        <h2>Na pravom si mestu!</h2>
+      </div> -->
+      <img src="slike/poz2.JPG" alt="" />
+    </div>
+
+    <div id="body" class="telo">
+      <h1 id="section1" class="glavniNaslov">Knjige</h1>
+      <div class="tema">
+        <h4>Bela tema</h4>
+        <label class="toggle">
+          <input type="checkbox" id="themeToggle" />
+          <!-- Dodan id atribut -->
+          <span class="slider"></span>
+        </label>
+      </div>
+
+      <div class="dropdown">
+        <button
+          class="btn btn-secondary dropdown-toggle"
+          id="filtriraj"
+          type="button"
+          data-bs-toggle="dropdown"
+          aria-expanded="false"
+        >
+          Žanrovi
+        </button>
+        <ul class="dropdown-menu">
+          <li><a class="dropdown-item" href="#">Autobiografija</a></li>
+          <li><a class="dropdown-item" href="#">Beletristika</a></li>
+          <li><a class="dropdown-item" href="#">Drama</a></li>
+          <li><a class="dropdown-item" href="#">Fantastika</a></li>
+          <li><a class="dropdown-item" href="#">Filozofija</a></li>
+          <li><a class="dropdown-item" href="#">Horor</a></li>
+          <li><a class="dropdown-item" href="#">Istorijski</a></li>
+          <li><a class="dropdown-item" href="#">Klasici</a></li>
+          <li><a class="dropdown-item" href="#">Kriminalistika</a></li>
+          <li><a class="dropdown-item" href="#">Ljubavni</a></li>
+          <li><a class="dropdown-item" href="#">Mitologija</a></li>
+          <li><a class="dropdown-item" href="#">Naučna Fantastika</a></li>
+          <li><a class="dropdown-item" href="#">Psihologija</a></li>
+          <li><a class="dropdown-item" href="#">Publicistika</a></li>
+          <li><a class="dropdown-item" href="#">Priče</a></li>
+          <li><a class="dropdown-item" href="#">Savremena Fikcija</a></li>
+          <li><a class="dropdown-item" href="#">Tinejdz</a></li>
+          <li><a class="dropdown-item" href="#">Trileri</a></li>
+        </ul>
+      </div>
+
+      <div id="kartice-container">
+        <!-- Ovdje će se ubaciti kartice -->
+      </div>
+      <div class="pagination">
+        <button id="prevPage">Prethodna</button>
+        <button id="nextPage">Sledeća</button>
+      </div>
+    </div>
+
+    <div id="naruci-modal" class="modal">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2>Naručite knjigu</h2>
+        <p>Naručujete knjigu: <span id="knjiga-naziv"></span></p>
+        <form id="naruci-forma">
+          <label for="ime">Ime i prezime:</label>
+          <input type="text" id="ime" required />
+
+          <label for="email">Email:</label>
+          <input type="email" id="email" required />
+
+          <label for="adresa">Adresa:</label>
+          <textarea id="adresa" required></textarea>
+
+          <label for="kartica">Broj kreditne kartice:</label>
+          <input
+            type="text"
+            id="kartica"
+            required
+            maxlength="16"
+            pattern="\d{16}"
+          />
+
+          <button type="submit">Potvrdi narudžbinu</button>
+        </form>
+      </div>
+    </div>
+
+    <div id="pageButtons"></div>
+    <div id="content"></div>
+
+    <script src="js/js.js"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

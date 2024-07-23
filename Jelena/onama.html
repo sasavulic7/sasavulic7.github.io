@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="sr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/x-icon" href="slike/logo.png" />
+    <title>O nama - Bella Kozmetika</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --primary-color: #f8c9d4;
+        --secondary-color: #84b6f4;
+        --text-color: #333;
+        --light-bg: #f9f9f9;
+      }
+
+      body {
+        font-family: "Montserrat", sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: var(--light-bg);
+        color: var(--text-color);
+        line-height: 1.6;
+      }
+
+      header {
+        background-color: white;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        position: fixed;
+        width: 100%;
+        top: 0;
+        z-index: 1000;
+      }
+
+      nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1em 5%;
+      }
+
+      .logo {
+        font-size: 1.5em;
+        font-weight: 600;
+        color: var(--primary-color);
+      }
+
+      nav ul {
+        list-style-type: none;
+        display: flex;
+      }
+
+      nav ul li {
+        margin-left: 20px;
+      }
+
+      nav ul li a {
+        color: var(--text-color);
+        text-decoration: none;
+        transition: color 0.3s ease;
+      }
+
+      nav ul li a:hover {
+        color: var(--secondary-color);
+      }
+
+      .content {
+        padding: 100px 5% 40px;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      .section-title {
+        text-align: center;
+        margin-bottom: 40px;
+        color: var(--secondary-color);
+      }
+
+      .about-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 40px;
+        align-items: center;
+      }
+
+      .about-image {
+        width: 100%;
+        border-radius: 10px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      }
+
+      .about-text h3 {
+        color: var(--primary-color);
+        margin-bottom: 20px;
+      }
+
+      .values-list {
+        list-style-type: none;
+        padding: 0;
+      }
+
+      .values-list li {
+        margin-bottom: 10px;
+        padding-left: 25px;
+        position: relative;
+      }
+
+      .values-list li:before {
+        content: "★";
+        color: var(--secondary-color);
+        position: absolute;
+        left: 0;
+      }
+
+      .team-section {
+        margin-top: 60px;
+      }
+
+      .team-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 20px;
+      }
+
+      .team-member {
+        text-align: center;
+      }
+
+      .team-member img {
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
+        object-fit: cover;
+        margin-bottom: 10px;
+      }
+
+      footer {
+        background-color: var(--primary-color);
+        color: white;
+        text-align: center;
+        padding: 1em;
+        margin-top: 40px;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <div class="logo">Bella Kozmetika</div>
+        <ul>
+          <li><a href="index.html">Početna</a></li>
+          <li><a href="onama.html">O nama</a></li>
+          <li><a href="proizvodi.html">Proizvodi</a></li>
+          <li><a href="kontakt.html">Kontakt</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <div class="content">
+      <h2 class="section-title">O nama</h2>
+
+      <div class="about-grid">
+        <img
+          src="https://images.unsplash.com/photo-1556229010-6c3f2c9ca5f8"
+          alt="Bella Kozmetika laboratorija"
+          class="about-image"
+        />
+        <div class="about-text">
+          <h3>Naša priča</h3>
+          <p>
+            Bella Kozmetika je nastala iz strasti prema prirodnoj lepoti i želji
+            da svima pružimo visokokvalitetne proizvode za negu kože. Osnovani
+            2015. godine, posvećeni smo stvaranju inovativnih formula koje
+            kombinuju najbolje što priroda nudi s najnovijim dostignućima u
+            kozmetologiji.
+          </p>
+          <h3>Naše vrijednosti</h3>
+          <ul class="values-list">
+            <li>Prirodni sastojci</li>
+            <li>Etičko testiranje</li>
+            <li>Održiva proizvodnja</li>
+            <li>Inovacija</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="team-section">
+        <h3 class="section-title">Upoznajte naš tim</h3>
+        <div class="team-grid">
+          <div class="team-member">
+            <img
+              src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80"
+              alt="Ana Marković"
+            />
+            <h4>Ana Marković</h4>
+            <p>Osnivač i CEO</p>
+          </div>
+          <div class="team-member">
+            <img
+              src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e"
+              alt="Marko Petrović"
+            />
+            <h4>Marko Petrović</h4>
+            <p>Glavni hemičar</p>
+          </div>
+          <div class="team-member">
+            <img
+              src="https://images.unsplash.com/photo-1494790108377-be9c29b29330"
+              alt="Jovana Nikolić"
+            />
+            <h4>Jovana Nikolić</h4>
+            <p>Marketing direktor</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      <p>&copy; 2024 Bella Kozmetika. Sva prava zadržana.</p>
+    </footer>
+  </body>
+</html>

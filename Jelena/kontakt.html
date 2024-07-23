@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="sr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/x-icon" href="slike/logo.png" />
+    <title>Kontakt - Bella Kozmetika</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --primary-color: #f8c9d4;
+        --secondary-color: #84b6f4;
+        --text-color: #333;
+        --light-bg: #f9f9f9;
+      }
+
+      body {
+        font-family: "Montserrat", sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: var(--light-bg);
+        color: var(--text-color);
+        line-height: 1.6;
+      }
+
+      header {
+        background-color: white;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        position: fixed;
+        width: 100%;
+        top: 0;
+        z-index: 1000;
+      }
+
+      nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1em 5%;
+      }
+
+      .logo {
+        font-size: 1.5em;
+        font-weight: 600;
+        color: var(--primary-color);
+      }
+
+      nav ul {
+        list-style-type: none;
+        display: flex;
+      }
+
+      nav ul li {
+        margin-left: 20px;
+      }
+
+      nav ul li a {
+        color: var(--text-color);
+        text-decoration: none;
+        transition: color 0.3s ease;
+      }
+
+      nav ul li a:hover {
+        color: var(--secondary-color);
+      }
+
+      .content {
+        padding: 100px 5% 40px;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      .section-title {
+        text-align: center;
+        margin-bottom: 40px;
+        color: var(--secondary-color);
+      }
+
+      .contact-container {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+      }
+
+      .contact-form {
+        flex: 1;
+        min-width: 300px;
+        background-color: white;
+        padding: 30px;
+        border-radius: 10px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      }
+
+      .contact-info {
+        flex: 1;
+        min-width: 300px;
+        padding: 30px;
+      }
+
+      .form-group {
+        margin-bottom: 20px;
+      }
+
+      label {
+        display: block;
+        margin-bottom: 5px;
+        font-weight: 600;
+      }
+
+      input,
+      textarea {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        font-family: "Montserrat", sans-serif;
+      }
+
+      textarea {
+        height: 150px;
+      }
+
+      .btn {
+        display: inline-block;
+        background-color: var(--secondary-color);
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 25px;
+        text-decoration: none;
+        transition: background-color 0.3s ease;
+        cursor: pointer;
+      }
+
+      .btn:hover {
+        background-color: #6a9ed4;
+      }
+
+      .contact-item {
+        margin-bottom: 20px;
+      }
+
+      .contact-item h3 {
+        margin-bottom: 5px;
+        color: var(--secondary-color);
+      }
+
+      .social-links {
+        margin-top: 20px;
+      }
+
+      .social-links a {
+        display: inline-block;
+        margin-right: 10px;
+        color: var(--secondary-color);
+        font-size: 1.5em;
+        transition: color 0.3s ease;
+      }
+
+      .social-links a:hover {
+        color: var(--primary-color);
+      }
+
+      footer {
+        background-color: var(--primary-color);
+        color: white;
+        text-align: center;
+        padding: 1em;
+        margin-top: 40px;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <div class="logo">Bella Kozmetika</div>
+        <ul>
+          <li><a href="index.html">Početna</a></li>
+          <li><a href="onama.html">O nama</a></li>
+          <li><a href="proizvodi.html">Proizvodi</a></li>
+          <li><a href="kontakt.html">Kontakt</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <div class="content">
+      <h2 class="section-title">Kontaktirajte nas</h2>
+
+      <div class="contact-container">
+        <div class="contact-form">
+          <form id="contact-form">
+            <div class="form-group">
+              <label for="name">Ime i prezime</label>
+              <input type="text" id="name" name="name" required />
+            </div>
+            <div class="form-group">
+              <label for="email">Email adresa</label>
+              <input type="email" id="email" name="email" required />
+            </div>
+            <div class="form-group">
+              <label for="subject">Predmet</label>
+              <input type="text" id="subject" name="subject" required />
+            </div>
+            <div class="form-group">
+              <label for="message">Poruka</label>
+              <textarea id="message" name="message" required></textarea>
+            </div>
+            <button type="submit" class="btn">Pošalji poruku</button>
+          </form>
+        </div>
+        <div class="contact-info">
+          <div class="contact-item">
+            <h3>Adresa</h3>
+            <p>Šekspirova 10, Čačak, Srbija</p>
+          </div>
+          <div class="contact-item">
+            <h3>Email</h3>
+            <p>info@bellakozmetika.com</p>
+          </div>
+          <div class="contact-item">
+            <h3>Telefon</h3>
+            <p>+381 11 123 4567</p>
+          </div>
+          <div class="contact-item">
+            <h3>Radno vreme</h3>
+            <p>
+              Pon - Pet: 9:00 - 17:00<br />
+              Sub: 10:00 - 14:00<br />
+              Ned: Zatvoreno
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      <p>&copy; 2024 Bella Kozmetika. Sva prava zadržana.</p>
+    </footer>
+
+    <script>
+      document
+        .getElementById("contact-form")
+        .addEventListener("submit", function (e) {
+          e.preventDefault();
+          // Ovde bi trebalo implementirati logiku za slanje forme
+          alert("Hvala na vašoj poruci! Odgovorićemo vam uskoro.");
+          this.reset();
+        });
+    </script>
+  </body>
+</html>
