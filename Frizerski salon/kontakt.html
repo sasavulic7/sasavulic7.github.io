@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kontakt - Frizerski Salon Una</title>
+    <link rel="icon" type="image/x-icon" href="slike/logo.jpg">
+
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f4f4f4;
+        }
+        .navbar {
+            background-color: #333;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background-color 0.3s ease;
+        }
+
+        .navbar a {
+            color: #f2f2f2;
+            text-align: center;
+            padding: 12px 20px;
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 14px;
+            transition: color 0.3s ease, background-color 0.3s ease;
+            border-radius: 4px;
+        }
+
+        .navbar a:hover {
+            background-color: #f2f2f2;
+            color: #333;
+        }
+
+        .navbar-brand {
+            font-size: 24px;
+            font-weight: bold;
+            color: #4CAF50;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-decoration: none;
+        }
+
+        .navbar .menu {
+            display: flex;
+            gap: 20px;
+        }
+
+        /* Navbar sticky efekt */
+        .navbar.scrolled {
+            background-color: #222;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .navbar.scrolled .navbar-brand {
+            color: #4CAF50;
+        }
+
+        .navbar.scrolled a {
+            color: #f2f2f2;
+        }
+
+        .navbar.scrolled a:hover {
+            background-color: #4CAF50;
+            color: #fff;
+        }
+        .content {
+            max-width: 800px;
+            margin: 80px auto 20px;
+            padding: 20px;
+            background-color: white;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            border-radius: 8px;
+        }
+        .contact-form {
+            display: grid;
+            gap: 20px;
+        }
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+        label {
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        input, textarea, select {
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+        textarea {
+            height: 150px;
+        }
+        button {
+    background-color: #4CAF50; /* Zelena boja pozadine */
+    color: white; /* Bela boja teksta */
+    padding: 12px 24px; /* Unutrašnji razmak */
+    font-size: 16px; /* Veličina teksta */
+    border: none; /* Uklanjanje ivice */
+    border-radius: 25px; /* Zaobljeni uglovi */
+    cursor: pointer; /* Promena kursora pri hover-u */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Dodavanje senke */
+    transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease; /* Glatke tranzicije */
+}
+
+button:hover {
+    background-color: #45a049; /* Tamnija zelena pri hover-u */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Povećanje senke */
+    transform: translateY(-3px); /* Blago podizanje dugmeta */
+}
+
+button:active {
+    background-color: #3e8e41; /* Još tamnija zelena pri kliku */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Smanjena senka */
+    transform: translateY(0); /* Vraćanje dugmeta u originalni položaj */
+}
+        .contact-info {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #ddd;
+        }
+        .contact-info p {
+            margin: 5px 0;
+        }
+     /* Modal Styles */
+.modal {
+    display: none; 
+    position: fixed; 
+    z-index: 1000; 
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto; 
+    background-color: rgba(0, 0, 0, 0.5); 
+}
+
+.modal-content {
+    background-color: #fff;
+    margin: 5% auto;
+    padding: 30px;
+    border-radius: 8px;
+    width: 80%;
+    max-width: 500px;
+    position: relative;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.modal-close {
+    color: #333;
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.modal-close:hover,
+.modal-close:focus {
+    color: #4CAF50;
+    text-decoration: none;
+}
+
+.modal h2 {
+    font-size: 24px;
+    color: #4CAF50;
+    margin-top: 0;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+.modal form {
+    display: flex;
+    flex-direction: column;
+}
+
+.modal label {
+    font-size: 16px;
+    margin-bottom: 5px;
+}
+
+.modal input,
+.modal select {
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+.modal button {
+    background-color: #4CAF50;
+    color: #fff;
+    padding: 12px;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.modal button:hover {
+    background-color: #45a049;
+    transform: translateY(-2px);
+}
+        /* Footer Styles */
+        .footer {
+            background-color: #333;
+            color: #f2f2f2;
+            padding: 40px 0;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        .footer-section {
+            flex: 1;
+            padding: 20px;
+            min-width: 250px;
+            max-width: 300px;
+        }
+        .footer-section h3 {
+            margin-bottom: 20px;
+            font-size: 18px;
+            color: #4CAF50;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .footer-section p {
+            color: #ccc;
+        }
+        .footer-section ul {
+            list-style: none;
+            padding: 0;
+        }
+        .footer-section ul li {
+            margin-bottom: 10px;
+        }
+        .footer-section ul li a {
+            color: #f2f2f2;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        .footer-section ul li a:hover {
+            color: #4CAF50;
+        }
+        .contact i, .socials a {
+            color: #4CAF50;
+            margin-right: 10px;
+        }
+        .socials a {
+            font-size: 18px;
+            margin-right: 10px;
+            display: inline-block;
+            transition: color 0.3s ease;
+        }
+        .socials a:hover {
+            color: #fff;
+        }
+        .newsletter {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+        .newsletter input[type="email"] {
+            padding: 10px;
+            width: 100%;
+            max-width: 250px;
+            border: none;
+            border-radius: 3px;
+            margin-bottom: 10px;
+        }
+        .newsletter button.btn {
+            padding: 10px 20px;
+            border: none;
+            background-color: #4CAF50;
+            color: #fff;
+            cursor: pointer;
+            border-radius: 3px;
+            transition: background-color 0.3s ease;
+        }
+        .newsletter button.btn:hover {
+            background-color: #45a049;
+        }
+        .footer-bottom {
+            text-align: center;
+            padding: 20px;
+            background-color: #222;
+            color: #ccc;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+        .footer-bottom a {
+            color: #4CAF50;
+            text-decoration: none;
+        }
+        .footer-bottom p {
+            margin: 0;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <a href="index.html">Početna</a>
+        <a href="usluge.html">Usluge</a>
+        <a href="utisci.html">Utisci</a>
+        <a href="o-nama.html">O nama</a>
+        <a href="kontakt.html">Kontakt</a>
+    </nav>
+
+    <div class="content">
+        <h1>Kontaktirajte nas</h1>
+        <p>Imate pitanje ili želite da zakažete termin? Pošaljite nam poruku i odgovorićemo vam u najkraćem mogućem roku.</p>
+        
+        <form id="contactForm" class="contact-form">
+            <div class="form-group">
+                <label for="name">Ime i prezime:</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email adresa:</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="phone">Broj telefona:</label>
+                <input type="tel" id="phone" name="phone">
+            </div>
+            
+            <div class="form-group">
+                <label for="message">Poruka:</label>
+                <textarea id="message" name="message" required></textarea>
+            </div>
+            <button type="submit">Pošaljite</button>
+        </form>
+
+        <div class="contact-info">
+            <h2>Kontakt informacije</h2>
+            <p><i class="fa fa-map-marker"></i>  Marka Kraljevića, Čačak</p>
+            <p><i class="fa fa-phone"></i> Telefon: +381 11 123 4567</p>
+            <p><i class="fa fa-envelope"></i> Email: info@unafrizerskisalon.com</p>
+            <button class="cta" id="scheduleButton">Zakaži termin</button>
+        </div>
+    </div>
+
+      <!-- Modal -->
+<div id="bookingModal" class="modal">
+    <div class="modal-content">
+        <span class="modal-close">&times;</span>
+        <h2>Zakazivanje termina</h2>
+        <form id="bookingForm">
+            <label for="name">Ime:</label>
+            <input type="text" id="name" name="name" required>
+            
+            <label for="service">Vrsta usluge:</label>
+            <select id="service" name="service" required>
+                <option value="">Izaberite uslugu</option>
+                <option value="sishanje">Šišanje</option>
+                <option value="farbanje">Farbanje</option>
+                <option value="stilizovanje">Stilizovanje</option>
+                <option value="tretman">Tretmani nege kose</option>
+                <option value="musko_sishanje">Muško šišanje</option>
+                <option value="svecane_frizure">Svečane frizure</option>
+            </select>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+            
+            <label for="date">Datum:</label>
+            <input type="date" id="date" name="date" required>
+            
+            <button type="submit">Pošalji</button>
+        </form>
+    </div>
+</div>
+
+<footer class="footer">
+    <div class="footer-content">
+        <div class="footer-section about">
+            <h3>O nama</h3>
+            <p>Mi smo frizerski salon posvećen pružanju vrhunske usluge našim klijentima. Naši frizeri su stručnjaci sa dugogodišnjim iskustvom i uvek prate najnovije trendove u frizerskoj industriji.</p>
+            <div class="contact">
+                <p><i class="fas fa-map-marker-alt"></i> Marka Kraljevića, Čačak</p>
+                <p><i class="fas fa-phone-alt"></i> +381 123 456 789</p>
+                <p><i class="fas fa-envelope"></i> info@unafrizerskisalon.com</p>
+            </div>
+            <div class="socials">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+        </div>
+
+        <div class="footer-section links">
+            <h3>Korisni linkovi</h3>
+            <ul>
+                <li><a href="usluge.html">Usluge</a></li>
+                <li><a href="utisci.html">Utisci</a></li>
+                <li><a href="kontakt.html">Kontakt</a></li>
+                <li><a href="o-nama.html">O nama</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-section newsletter">
+            <h3>Newsletter</h3>
+            <p>Pretplatite se na naš newsletter kako biste bili u toku sa našim najnovijim ponudama i uslugama.</p>
+            <form action="#">
+                <input type="email" placeholder="Unesite vašu email adresu">
+                <button type="submit" class="btn">Pretplati se</button>
+            </form>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        &copy; 2024 Una Frizerski Salon | Sva prava zadržana
+    </div>
+</footer>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+    const modal = document.getElementById('bookingModal');
+    const openModalButton = document.querySelector('.cta');
+    const closeModalButton = document.querySelector('.modal-close');
+
+    // Otvori modal
+    openModalButton.addEventListener('click', function() {
+        modal.style.display = 'block';
+    });
+
+    // Zatvori modal kada klikneš na x
+    closeModalButton.addEventListener('click', function() {
+        modal.style.display = 'none';
+    });
+
+    // Zatvori modal kada klikneš van modala
+    window.addEventListener('click', function(event) {
+        if (event.target === modal) {
+            modal.style.display = 'none';
+        }
+    });
+});
+    </script>
+</body>
+</html>

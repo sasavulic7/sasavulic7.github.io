@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>O nama - Frizerski Salon Una</title>
+    <link rel="icon" type="image/x-icon" href="slike/logo.jpg">
+
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+        }
+        .navbar {
+            background-color: #333;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background-color 0.3s ease;
+        }
+
+        .navbar a {
+            color: #f2f2f2;
+            text-align: center;
+            padding: 12px 20px;
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 14px;
+            transition: color 0.3s ease, background-color 0.3s ease;
+            border-radius: 4px;
+        }
+
+        .navbar a:hover {
+            background-color: #f2f2f2;
+            color: #333;
+        }
+
+        .navbar-brand {
+            font-size: 24px;
+            font-weight: bold;
+            color: #4CAF50;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-decoration: none;
+        }
+
+        .navbar .menu {
+            display: flex;
+            gap: 20px;
+        }
+
+        /* Navbar sticky efekt */
+        .navbar.scrolled {
+            background-color: #222;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .navbar.scrolled .navbar-brand {
+            color: #4CAF50;
+        }
+
+        .navbar.scrolled a {
+            color: #f2f2f2;
+        }
+
+        .navbar.scrolled a:hover {
+            background-color: #4CAF50;
+            color: #fff;
+        }
+
+        .content {
+            max-width: 1200px;
+            margin: 80px auto 20px;
+            padding: 0 20px;
+        }
+        .about-section {
+            display: flex;
+            align-items: center;
+            margin-bottom: 40px;
+        }
+        .logo {
+            flex: 1;
+            padding-right: 40px;
+        }
+        .logo img {
+            max-width: 100%;
+            height: auto;
+        }
+        .about-text {
+            flex: 2;
+        }
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+        .gallery img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 8px;
+            transition: transform 0.3s ease;
+        }
+        .gallery img:hover {
+            transform: scale(1.05);
+        }
+
+  /* Footer Styles */
+  .footer {
+            background-color: #333;
+            color: #f2f2f2;
+            padding: 40px 0;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        .footer-section {
+            flex: 1;
+            padding: 20px;
+            min-width: 250px;
+            max-width: 300px;
+        }
+        .footer-section h3 {
+            margin-bottom: 20px;
+            font-size: 18px;
+            color: #4CAF50;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .footer-section p {
+            color: #ccc;
+        }
+        .footer-section ul {
+            list-style: none;
+            padding: 0;
+        }
+        .footer-section ul li {
+            margin-bottom: 10px;
+        }
+        .footer-section ul li a {
+            color: #f2f2f2;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        .footer-section ul li a:hover {
+            color: #4CAF50;
+        }
+        .contact i, .socials a {
+            color: #4CAF50;
+            margin-right: 10px;
+        }
+        .socials a {
+            font-size: 18px;
+            margin-right: 10px;
+            display: inline-block;
+            transition: color 0.3s ease;
+        }
+        .socials a:hover {
+            color: #fff;
+        }
+        .newsletter {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+        .newsletter input[type="email"] {
+            padding: 10px;
+            width: 100%;
+            max-width: 250px;
+            border: none;
+            border-radius: 3px;
+            margin-bottom: 10px;
+        }
+        .newsletter button.btn {
+            padding: 10px 20px;
+            border: none;
+            background-color: #4CAF50;
+            color: #fff;
+            cursor: pointer;
+            border-radius: 3px;
+            transition: background-color 0.3s ease;
+        }
+        .newsletter button.btn:hover {
+            background-color: #45a049;
+        }
+        .footer-bottom {
+            text-align: center;
+            padding: 20px;
+            background-color: #222;
+            color: #ccc;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+        .footer-bottom a {
+            color: #4CAF50;
+            text-decoration: none;
+        }
+        .footer-bottom p {
+            margin: 0;
+            font-size: 14px;
+        }
+        @media (max-width: 768px) {
+            .about-section {
+                flex-direction: column;
+            }
+            .logo {
+                margin-bottom: 20px;
+                padding-right: 0;
+            }
+            .gallery {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <a href="index.html">Početna</a>
+        <a href="usluge.html">Usluge</a>
+        <a href="utisci.html">Utisci</a>
+        <a href="o-nama.html">O nama</a>
+        <a href="kontakt.html">Kontakt</a>
+    </nav>
+
+    <div class="content">
+        <h1>O nama</h1>
+        
+        <div class="about-section">
+            <div class="logo">
+                <img src="slike/logo.jpg" alt="Logo Frizerskog Salona Elegancija">
+            </div>
+            <div class="about-text">
+                <h2>Frizerski Salon Una</h2>
+                <p>Dobrodošli u Frizerski Salon Una, vaše odredište za vrhunsku negu kose i stilizovanje u srcu grada. Sa 4 godine iskustva, naš tim stručnih frizera posvećen je pružanju personalizovane usluge koja će vas ostaviti sa osmehom na licu i samopouzdanjem u vašem izgledu.</p>
+                <p>Naš salon kombinuje najnovije trendove u frizerstvu sa klasičnim tehnikama, koristeći samo najkvalitetnije proizvode za negu kose. Bilo da želite suptilnu promenu ili dramatičnu transformaciju, naši stručnjaci su tu da vas vode kroz proces i osiguraju da dobijete frizuru koja savršeno odgovara vašem stilu i ličnosti.</p>
+                <p>U Salonu Una, verujemo da svaki klijent zaslužuje vrhunsko iskustvo. Zato smo stvorili opuštajuću i prijatnu atmosferu gde se možete opustiti i prepustiti rukama naših stručnjaka. Dođite i doživite razliku koju pravi istinska posvećenost kvalitetu i zadovoljstvu klijenata.</p>
+            </div>
+        </div>
+
+        <h2>Naš salon</h2>
+        <div class="gallery">
+            <img src="slike/enterijer.jpg" alt="Enterijer salona">
+            <img src="slike/prostor.jpg" alt="Prostor za šišanje">
+            <img src="slike/prostor2.jpg" alt="Prostor za farbanje">
+            <img src="slike/prostor3.jpg" alt="Prostor za pranje kose">
+            <img src="slike/cekaonica.jpg" alt="Čekaonica">
+            <img src="slike/alati.jpg" alt="Detalj iz salona">
+        </div>
+    </div>
+
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section about">
+                <h3>O nama</h3>
+                <p>Mi smo frizerski salon posvećen pružanju vrhunske usluge našim klijentima. Naši frizeri su stručnjaci sa dugogodišnjim iskustvom i uvek prate najnovije trendove u frizerskoj industriji.</p>
+                <div class="contact">
+                    <p><i class="fas fa-map-marker-alt"></i> Marka Kraljevića, Čačak</p>
+                    <p><i class="fas fa-phone-alt"></i> +381 123 456 789</p>
+                    <p><i class="fas fa-envelope"></i> info@unafrizerskisalon.com</p>
+                </div>
+                <div class="socials">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+    
+            <div class="footer-section links">
+                <h3>Korisni linkovi</h3>
+                <ul>
+                    <li><a href="usluge.html">Usluge</a></li>
+                    <li><a href="utisci.html">Utisci</a></li>
+                    <li><a href="kontakt.html">Kontakt</a></li>
+                    <li><a href="o-nama.html">O nama</a></li>
+                </ul>
+            </div>
+    
+            <div class="footer-section newsletter">
+                <h3>Newsletter</h3>
+                <p>Pretplatite se na naš newsletter kako biste bili u toku sa našim najnovijim ponudama i uslugama.</p>
+                <form action="#">
+                    <input type="email" placeholder="Unesite vašu email adresu">
+                    <button type="submit" class="btn">Pretplati se</button>
+                </form>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; 2024 Una Frizerski Salon | Sva prava zadržana
+        </div>
+    </footer>
+</body>
+</html>

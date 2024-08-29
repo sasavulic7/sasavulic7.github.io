@@ -1,0 +1,697 @@
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Frizerski Salon Una</title>
+    <link rel="icon" type="image/x-icon" href="slike/logo.jpg">
+    <style>
+       body, html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', Arial, sans-serif;
+    color: #333;
+    scroll-behavior: smooth;
+}
+
+.navbar {
+            background-color: #333;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background-color 0.3s ease;
+        }
+
+        .navbar a {
+            color: #f2f2f2;
+            text-align: center;
+            padding: 12px 20px;
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 14px;
+            transition: color 0.3s ease, background-color 0.3s ease;
+            border-radius: 4px;
+        }
+
+        .navbar a:hover {
+            background-color: #f2f2f2;
+            color: #333;
+        }
+
+        .navbar-brand {
+            font-size: 24px;
+            font-weight: bold;
+            color: #4CAF50;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-decoration: none;
+        }
+
+        .navbar .menu {
+            display: flex;
+            gap: 20px;
+        }
+
+        /* Navbar sticky efekt */
+        .navbar.scrolled {
+            background-color: #222;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .navbar.scrolled .navbar-brand {
+            color: #4CAF50;
+        }
+
+        .navbar.scrolled a {
+            color: #f2f2f2;
+        }
+
+        .navbar.scrolled a:hover {
+            background-color: #4CAF50;
+            color: #fff;
+        }
+
+/* Hero sekcija */
+.hero {
+    background-image: url('slike/pozadina.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #fff;
+    position: relative;
+}
+
+.hero::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    pointer-events: none; /* Omogućava klikanje na elemente ispod */
+}
+
+.hero-content {
+    position: relative;
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 30px;
+    border-radius: 15px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    z-index: 1; /* Stavlja sadržaj iznad pseudo-elementa */
+}
+
+/* Sekcije: usluge, ponude, testimonijali */
+.services, .offers, .testimonials {
+    padding: 80px 20px;
+    text-align: center;
+    background-color: #f9f9f9;
+}
+
+.section-title {
+    font-size: 36px;
+    font-weight: bold;
+    margin-bottom: 40px;
+    position: relative;
+    display: inline-block;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: -10px;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 4px;
+    background-color: #4CAF50;
+    border-radius: 2px;
+}
+
+.service-item, .testimonial-item {
+    display: inline-block;
+    width: 28%;
+    margin: 15px;
+    padding: 30px;
+    vertical-align: top;
+    background-color: #fff;
+    border-radius: 15px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.service-item:hover, .testimonial-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+.service-item::before, .testimonial-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background-color: #4CAF50;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s ease;
+}
+
+.service-item:hover::before, .testimonial-item:hover::before {
+    transform: scaleX(1);
+}
+
+.service-item h3, .testimonial-item h3 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.service-item p, .testimonial-item p {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #666;
+}
+
+.testimonial-item {
+    text-align: left;
+    padding: 40px;
+}
+
+.testimonial-item::before {
+    background-color: #4CAF50;
+}
+
+.testimonial-item p {
+    font-style: italic;
+}
+
+.testimonial-item h3 {
+    font-size: 20px;
+    font-weight: bold;
+    color: #4CAF50;
+    margin-top: 20px;
+}
+
+.testimonial-item .client-info {
+    font-size: 14px;
+    color: #999;
+}
+
+/* Call to Action dugme */
+.cta {
+    background-color: #4CAF50;
+    color: white;
+    padding: 16px 24px;
+    border: none;
+    cursor: pointer;
+    width: 220px;
+    font-size: 20px;
+    margin: 40px auto;
+    display: block;
+    text-transform: uppercase;
+    border-radius: 50px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+.cta:hover {
+    background-color: #45a049;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+.offers {
+    background-color: #fff;
+    padding: 80px 20px;
+}
+
+.offer-item {
+    display: inline-block;
+    width: 30%;
+    margin: 15px;
+    padding: 30px;
+    background-color: #4CAF50;
+    color: white;
+    border-radius: 10px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    text-align: left;
+    position: relative;
+}
+
+.offer-item:hover {
+    background-color: #45a049;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+.offer-item h1 {
+    font-size: 22px;
+    margin-bottom: 15px;
+}
+
+.offer-item p {
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+.offer-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    background-color: #ff9800;
+    border-radius: 10px 0 0 10px;
+    transition: background-color 0.3s ease;
+}
+
+.offer-item:hover::before {
+    background-color: #ff5722;
+}
+
+  /* Footer Styles */
+  .footer {
+            background-color: #333;
+            color: #f2f2f2;
+            padding: 40px 0;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        .footer-section {
+            flex: 1;
+            padding: 20px;
+            min-width: 250px;
+            max-width: 300px;
+        }
+        .footer-section h3 {
+            margin-bottom: 20px;
+            font-size: 18px;
+            color: #4CAF50;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .footer-section p {
+            color: #ccc;
+        }
+        .footer-section ul {
+            list-style: none;
+            padding: 0;
+        }
+        .footer-section ul li {
+            margin-bottom: 10px;
+        }
+        .footer-section ul li a {
+            color: #f2f2f2;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        .footer-section ul li a:hover {
+            color: #4CAF50;
+        }
+        .contact i, .socials a {
+            color: #4CAF50;
+            margin-right: 10px;
+        }
+        .socials a {
+            font-size: 18px;
+            margin-right: 10px;
+            display: inline-block;
+            transition: color 0.3s ease;
+        }
+        .socials a:hover {
+            color: #fff;
+        }
+        .newsletter {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+        .newsletter input[type="email"] {
+            padding: 10px;
+            width: 100%;
+            max-width: 250px;
+            border: none;
+            border-radius: 3px;
+            margin-bottom: 10px;
+        }
+        .newsletter button.btn {
+            padding: 10px 20px;
+            border: none;
+            background-color: #4CAF50;
+            color: #fff;
+            cursor: pointer;
+            border-radius: 3px;
+            transition: background-color 0.3s ease;
+        }
+        .newsletter button.btn:hover {
+            background-color: #45a049;
+        }
+        .footer-bottom {
+            text-align: center;
+            padding: 20px;
+            background-color: #222;
+            color: #ccc;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+        .footer-bottom a {
+            color: #4CAF50;
+            text-decoration: none;
+        }
+        .footer-bottom p {
+            margin: 0;
+            font-size: 14px;
+        }
+
+button {
+    background-color: #4CAF50; /* Zelena boja pozadine */
+    color: white; /* Bela boja teksta */
+    padding: 12px 24px; /* Unutrašnji razmak */
+    font-size: 16px; /* Veličina teksta */
+    border: none; /* Uklanjanje ivice */
+    border-radius: 25px; /* Zaobljeni uglovi */
+    cursor: pointer; /* Promena kursora pri hover-u */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Dodavanje senke */
+    transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease; /* Glatke tranzicije */
+}
+
+button:hover {
+    background-color: #45a049; /* Tamnija zelena pri hover-u */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Povećanje senke */
+    transform: translateY(-3px); /* Blago podizanje dugmeta */
+}
+
+button:active {
+    background-color: #3e8e41; /* Još tamnija zelena pri kliku */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Smanjena senka */
+    transform: translateY(0); /* Vraćanje dugmeta u originalni položaj */
+}
+
+/* Modal Styles */
+.modal {
+    display: none; 
+    position: fixed; 
+    z-index: 1000; 
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto; 
+    background-color: rgba(0, 0, 0, 0.5); 
+}
+
+.modal-content {
+    background-color: #fff;
+    margin: 5% auto;
+    padding: 30px;
+    border-radius: 8px;
+    width: 80%;
+    max-width: 500px;
+    position: relative;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.modal-close {
+    color: #333;
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.modal-close:hover,
+.modal-close:focus {
+    color: #4CAF50;
+    text-decoration: none;
+}
+
+.modal h2 {
+    font-size: 24px;
+    color: #4CAF50;
+    margin-top: 0;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+.modal form {
+    display: flex;
+    flex-direction: column;
+}
+
+.modal label {
+    font-size: 16px;
+    margin-bottom: 5px;
+}
+
+.modal input,
+.modal select {
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+.modal button {
+    background-color: #4CAF50;
+    color: #fff;
+    padding: 12px;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.modal button:hover {
+    background-color: #45a049;
+    transform: translateY(-2px);
+}
+
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <a href="#home">Početna</a>
+        <a href="#services">Usluge</a>
+        <a href="#offers">Ponude</a>
+        <a href="#testimonials">Utisci</a>
+        <a href="o-nama.html">O nama</a>
+        <a href="kontakt.html">Kontakt</a>
+    </nav>
+
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Dobrodošli u Frizerski Salon Una</h1>
+            <button class="cta">Zakaži termin</button>
+        </div>
+    </section>
+
+    <section id="services" class="services">
+        <h2>Naše Usluge</h2>
+        <div class="service-item">
+            <h3>Šišanje</h3>
+            <p>Profesionalno šišanje prilagođeno vašem stilu.</p>
+            <p>Cena: 1500 din</p>
+        </div>
+        <div class="service-item">
+            <h3>Farbanje</h3>
+            <p>Širok izbor boja i tehnika farbanja.</p>
+            <p>Cena: od 3000 din</p>
+        </div>
+        <div class="service-item">
+            <h3>Stilizovanje</h3>
+            <p>Feniranje, uvijanje ili peglanje kose.</p>
+            <p>Cena: 2000 din</p>
+        </div>
+
+       <a href="usluge.html"> <button>Pogledajte sve usluge</button> </a>
+    </section>
+
+    <section id="offers" class="offers">
+        <h1>Specijalne Ponude</h1>
+        <p>Ove nedelje: 20% popusta na sve tretmane nege kose!</p>
+    </section>
+
+
+    <section id="testimonials" class="testimonials">
+        <h2>Utisci Klijenata</h2>
+        <div class="testimonials-content">
+            <div class="testimonial-item">
+                <img src="/api/placeholder/100/100" alt="Klijent 1">
+                <p>"Uvek izađem iz salona sa osmehom. Najbolji frizerski salon u gradu!" - Marija Simić</p>
+            </div>
+            <div class="testimonial-item">
+                <img src="/api/placeholder/100/100" alt="Klijent 2">
+                <p>"Profesionalno osoblje i vrhunska usluga. Preporučujem svima!" - Nikola Miletić</p>
+            </div>
+        </div>
+        <a href="utisci.html">
+            <button class="view-all">Pogledajte sve utiske</button>
+        </a>
+    </section>
+    
+
+
+    <!-- Modal -->
+<div id="bookingModal" class="modal">
+    <div class="modal-content">
+        <span class="modal-close">&times;</span>
+        <h2>Zakazivanje termina</h2>
+        <form id="bookingForm">
+            <label for="name">Ime:</label>
+            <input type="text" id="name" name="name" required>
+            
+            <label for="service">Vrsta usluge:</label>
+            <select id="service" name="service" required>
+                <option value="">Izaberite uslugu</option>
+                <option value="sishanje">Šišanje</option>
+                <option value="farbanje">Farbanje</option>
+                <option value="stilizovanje">Stilizovanje</option>
+                <option value="tretman">Tretmani nege kose</option>
+                <option value="musko_sishanje">Muško šišanje</option>
+                <option value="svecane_frizure">Svečane frizure</option>
+            </select>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+            
+            <label for="date">Datum:</label>
+            <input type="date" id="date" name="date" required>
+            
+            <button type="submit">Pošalji</button>
+        </form>
+    </div>
+</div>
+
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section about">
+                <h3>O nama</h3>
+                <p>Mi smo frizerski salon posvećen pružanju vrhunske usluge našim klijentima. Naši frizeri su stručnjaci sa dugogodišnjim iskustvom i uvek prate najnovije trendove u frizerskoj industriji.</p>
+                <div class="contact">
+                    <p><i class="fas fa-map-marker-alt"></i> Marka Kraljevića, Čačak</p>
+                    <p><i class="fas fa-phone-alt"></i> +381 123 456 789</p>
+                    <p><i class="fas fa-envelope"></i> info@unafrizerskisalon.com</p>
+                </div>
+                <div class="socials">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+    
+            <div class="footer-section links">
+                <h3>Korisni linkovi</h3>
+                <ul>
+                    <li><a href="usluge.html">Usluge</a></li>
+                    <li><a href="utisci.html">Utisci</a></li>
+                    <li><a href="kontakt.html">Kontakt</a></li>
+                    <li><a href="o-nama.html">O nama</a></li>
+                </ul>
+            </div>
+    
+            <div class="footer-section newsletter">
+                <h3>Newsletter</h3>
+                <p>Pretplatite se na naš newsletter kako biste bili u toku sa našim najnovijim ponudama i uslugama.</p>
+                <form action="#">
+                    <input type="email" placeholder="Unesite vašu email adresu">
+                    <button type="submit" class="btn">Pretplati se</button>
+                </form>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; 2024 Una Frizerski Salon | Sva prava zadržana
+        </div>
+    </footer>
+    
+
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+    const navLinks = document.querySelectorAll('.navbar a');
+
+    navLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+            const href = this.getAttribute('href');
+            
+            // Proveri da li je link interni (sa #id) ili eksterni (kao o-nama.html)
+            if (href.startsWith('#')) {
+                e.preventDefault(); // Spreči standardno ponašanje za interne linkove
+                const targetId = href.substring(1);
+                const targetElement = document.getElementById(targetId);
+                if (targetElement) {
+                    targetElement.scrollIntoView({behavior: 'smooth'});
+                }
+            }
+            // Ako nije interni link, standardno ponašanje će biti primenjeno
+        });
+    });
+});
+
+window.onscroll = function() {
+    var navbar = document.querySelector('.navbar');
+    if (window.scrollY > 50) {
+        navbar.classList.add('scrolled');
+    } else {
+        navbar.classList.remove('scrolled');
+    }
+};
+
+document.addEventListener('DOMContentLoaded', function() {
+    const modal = document.getElementById('bookingModal');
+    const openModalButton = document.querySelector('.cta');
+    const closeModalButton = document.querySelector('.modal-close');
+
+    // Otvori modal
+    openModalButton.addEventListener('click', function() {
+        modal.style.display = 'block';
+    });
+
+    // Zatvori modal kada klikneš na x
+    closeModalButton.addEventListener('click', function() {
+        modal.style.display = 'none';
+    });
+
+    // Zatvori modal kada klikneš van modala
+    window.addEventListener('click', function(event) {
+        if (event.target === modal) {
+            modal.style.display = 'none';
+        }
+    });
+});
+
+
+    </script>
+</body>
+</html>

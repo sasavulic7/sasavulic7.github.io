@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Utisci - Frizerski Salon Una</title>
+    <link rel="icon" type="image/x-icon" href="slike/logo.jpg">
+
+    <style>
+   /* General Styles */
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', Arial, sans-serif;
+    line-height: 1.6;
+    color: #333;
+}
+
+.navbar {
+            background-color: #333;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background-color 0.3s ease;
+        }
+
+        .navbar a {
+            color: #f2f2f2;
+            text-align: center;
+            padding: 12px 20px;
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 14px;
+            transition: color 0.3s ease, background-color 0.3s ease;
+            border-radius: 4px;
+        }
+
+        .navbar a:hover {
+            background-color: #f2f2f2;
+            color: #333;
+        }
+
+        .navbar-brand {
+            font-size: 24px;
+            font-weight: bold;
+            color: #4CAF50;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-decoration: none;
+        }
+
+        .navbar .menu {
+            display: flex;
+            gap: 20px;
+        }
+
+        /* Navbar sticky efekt */
+        .navbar.scrolled {
+            background-color: #222;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .navbar.scrolled .navbar-brand {
+            color: #4CAF50;
+        }
+
+        .navbar.scrolled a {
+            color: #f2f2f2;
+        }
+
+        .navbar.scrolled a:hover {
+            background-color: #4CAF50;
+            color: #fff;
+        }
+
+.content {
+    margin-top: 80px;
+    max-width: 900px;
+    margin: 80px auto 20px;
+    padding: 0 20px;
+}
+
+h1, h2, h3 {
+    color: #4CAF50;
+}
+
+h1 {
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+
+h2 {
+    font-size: 28px;
+    margin-bottom: 15px;
+}
+
+h3 {
+    font-size: 22px;
+    margin-bottom: 10px;
+}
+
+.testimonial {
+    background-color: #fff;
+    border-left: 5px solid #4CAF50;
+    margin-bottom: 20px;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.testimonial p {
+    margin: 0;
+    line-height: 1.5;
+}
+
+.testimonial .author {
+    font-weight: bold;
+    text-align: right;
+    color: #4CAF50;
+}
+
+#testimonialForm {
+    background-color: #f9f9f9;
+    padding: 20px;
+    margin-top: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+#testimonialForm textarea,
+#testimonialForm input[type="text"] {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+#testimonialForm button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+#testimonialForm button:hover {
+    background-color: #45a049;
+    transform: translateY(-2px);
+}
+
+  /* Footer Styles */
+  .footer {
+            background-color: #333;
+            color: #f2f2f2;
+            padding: 40px 0;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        .footer-section {
+            flex: 1;
+            padding: 20px;
+            min-width: 250px;
+            max-width: 300px;
+        }
+        .footer-section h3 {
+            margin-bottom: 20px;
+            font-size: 18px;
+            color: #4CAF50;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .footer-section p {
+            color: #ccc;
+        }
+        .footer-section ul {
+            list-style: none;
+            padding: 0;
+        }
+        .footer-section ul li {
+            margin-bottom: 10px;
+        }
+        .footer-section ul li a {
+            color: #f2f2f2;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        .footer-section ul li a:hover {
+            color: #4CAF50;
+        }
+        .contact i, .socials a {
+            color: #4CAF50;
+            margin-right: 10px;
+        }
+        .socials a {
+            font-size: 18px;
+            margin-right: 10px;
+            display: inline-block;
+            transition: color 0.3s ease;
+        }
+        .socials a:hover {
+            color: #fff;
+        }
+        .newsletter {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+        .newsletter input[type="email"] {
+            padding: 10px;
+            width: 100%;
+            max-width: 250px;
+            border: none;
+            border-radius: 3px;
+            margin-bottom: 10px;
+        }
+        .newsletter button.btn {
+            padding: 10px 20px;
+            border: none;
+            background-color: #4CAF50;
+            color: #fff;
+            cursor: pointer;
+            border-radius: 3px;
+            transition: background-color 0.3s ease;
+        }
+        .newsletter button.btn:hover {
+            background-color: #45a049;
+        }
+        .footer-bottom {
+            text-align: center;
+            padding: 20px;
+            background-color: #222;
+            color: #ccc;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+        .footer-bottom a {
+            color: #4CAF50;
+            text-decoration: none;
+        }
+        .footer-bottom p {
+            margin: 0;
+            font-size: 14px;
+        }
+
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <a href="index.html">Početna</a>
+        <a href="usluge.html">Usluge</a>
+        <a href="utisci.html">Utisci</a>
+        <a href="o-nama.html">O nama</a>
+        <a href="kontakt.html">Kontakt</a>
+    </nav>
+
+    <div class="content">
+        <h1>O nama</h1>
+        <p>Dobrodošli u Frizerski Salon Elegancija, gde se spajaju kreativnost i profesionalnost. Naš tim iskusnih frizera posvećen je pružanju vrhunske usluge i stvaranju frizura koje odražavaju jedinstveni stil svakog klijenta.</p>
+        
+        <h2>Utisci naših klijenata</h2>
+        <div id="testimonials">
+            <div class="testimonial">
+                <p>Apsolutno sam oduševljena uslugom u salonu Elegancija. Moja nova frizura je baš onakva kakvu sam želela!</p>
+                <p class="author">- Ana Marković</p>
+            </div>
+            <div class="testimonial">
+                <p>Profesionalno osoblje i prijatna atmosfera. Uvek izađem iz salona zadovoljan i sa osmehom na licu.</p>
+                <p class="author">- Marko Petković</p>
+            </div>
+            <div class="testimonial">
+                <p>Profesionalno osoblje i vrhunska usluga. Preporučujem svima!</p>
+                <p class="author">- Nikole Miletić</p>
+            </div>
+            <div class="testimonial">
+                <p>Uvek izađem iz salona sa osmehom. Najbolji frizerski salon u gradu!</p>
+                <p class="author">- Marija Simić</p>
+            </div>
+            <div class="testimonial">
+                <p>Najbolji frizerski salon u gradu! Kvalitetni proizvodi i stručni saveti za negu kose.</p>
+                <p class="author">- Jelena Nikolić</p>
+            </div>
+        </div>
+
+
+        <form id="testimonialForm">
+            <h3>Dodajte svoj utisak</h3>
+            <textarea id="newTestimonial" rows="4" placeholder="Unesite vaš utisak ovde" required></textarea>
+            <input type="text" id="authorName" placeholder="Vaše ime" required>
+            <button type="submit">Dodaj utisak</button>
+        </form>
+
+        
+    </div>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section about">
+                <h3>O nama</h3>
+                <p>Mi smo frizerski salon posvećen pružanju vrhunske usluge našim klijentima. Naši frizeri su stručnjaci sa dugogodišnjim iskustvom i uvek prate najnovije trendove u frizerskoj industriji.</p>
+                <div class="contact">
+                    <p><i class="fas fa-map-marker-alt"></i> Marka Kraljevića, Čačak</p>
+                    <p><i class="fas fa-phone-alt"></i> +381 123 456 789</p>
+                    <p><i class="fas fa-envelope"></i> info@unafrizerskisalon.com</p>
+                </div>
+                <div class="socials">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+    
+            <div class="footer-section links">
+                <h3>Korisni linkovi</h3>
+                <ul>
+                    <li><a href="usluge.html">Usluge</a></li>
+                    <li><a href="utisci.html">Utisci</a></li>
+                    <li><a href="kontakt.html">Kontakt</a></li>
+                    <li><a href="o-nama.html">O nama</a></li>
+                </ul>
+            </div>
+    
+            <div class="footer-section newsletter">
+                <h3>Newsletter</h3>
+                <p>Pretplatite se na naš newsletter kako biste bili u toku sa našim najnovijim ponudama i uslugama.</p>
+                <form action="#">
+                    <input type="email" placeholder="Unesite vašu email adresu">
+                    <button type="submit" class="btn">Pretplati se</button>
+                </form>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; 2024 Una Frizerski Salon | Sva prava zadržana
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const form = document.getElementById('testimonialForm');
+            const testimonials = document.getElementById('testimonials');
+
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                const testimonialText = document.getElementById('newTestimonial').value;
+                const authorName = document.getElementById('authorName').value;
+
+                if (testimonialText && authorName) {
+                    const newTestimonial = document.createElement('div');
+                    newTestimonial.className = 'testimonial';
+                    newTestimonial.innerHTML = `
+                        <p>${testimonialText}</p>
+                        <p class="author">- ${authorName}</p>
+                    `;
+
+                    testimonials.appendChild(newTestimonial);
+
+                    // Clear the form
+                    document.getElementById('newTestimonial').value = '';
+                    document.getElementById('authorName').value = '';
+
+                    // Scroll to the new testimonial
+                    newTestimonial.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
