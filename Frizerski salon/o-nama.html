@@ -216,18 +216,79 @@
             margin: 0;
             font-size: 14px;
         }
-        @media (max-width: 768px) {
-            .about-section {
-                flex-direction: column;
-            }
-            .logo {
-                margin-bottom: 20px;
-                padding-right: 0;
-            }
-            .gallery {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
+        @media screen and (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        padding: 10px 0;
+        position: relative;
+
+    }
+
+    .navbar a {
+        padding: 10px;
+        width: 90%;
+        text-align: center;
+    }
+
+    .hero {
+    background-image: url('slike/pozadina2.jpg');
+    
+}
+
+    .hero-content {
+        padding: 20px;
+    }
+
+    .hero-content h1 {
+        font-size: 24px;
+    }
+
+    .service-item, .testimonial-item {
+        width: 75%;
+        padding: 30px;
+    }
+
+    .footer-content {
+        flex-direction: column;
+        width: 80%;
+
+    }
+
+    .footer-section {
+        width: 90%;
+        margin-bottom: 30px;
+    }
+    .section-title {
+        font-size: 24px;
+    }
+
+    .service-item, .testimonial-item {
+        width: 80%;
+        max-width: none;
+        margin: 10px 0;
+    }
+
+    .modal-content {
+        width: 95%;
+        padding: 15px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .section-title {
+        font-size: 24px;
+    }
+
+    .service-item h3, .testimonial-item h3 {
+        font-size: 20px;
+    }
+
+    .cta, button {
+        width: 100%;
+        font-size: 16px;
+        padding: 10px;
+    }
+}
     </style>
 </head>
 <body>
@@ -303,9 +364,7 @@
                 </form>
             </div>
         </div>
-        <div class="footer-bottom">
-            &copy; 2024 Una Frizerski Salon | Sva prava zadržana
-        </div>
+       
     </footer>
 </body>
 </html>
