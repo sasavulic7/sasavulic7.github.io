@@ -1,258 +1,348 @@
 <!DOCTYPE html>
 <html lang="sr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>My Portfolio</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap"
+      rel="stylesheet"
+    />
     <style>
-       body {
-            font-family: 'Roboto', sans-serif;
+          body {
+            font-family: "Roboto", sans-serif;
             margin: 0;
             padding: 0;
             background: #1a1a1a;
             color: #e0e0e0;
             line-height: 1.6;
-        }
-        .container {
+          }
+          .container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 20px;
-        }
-        header {
+          }
+          header {
             background-color: #2c2c2c;
             padding: 40px 0;
-            box-shadow: 0 2px 15px rgba(0,0,0,0.3);
-        }
-        .header-content {
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.3);
+          }
+          .header-content {
             display: flex;
             justify-content: space-between;
             align-items: center;
             flex-wrap: wrap;
-        }
-        .about-me {
+          }
+          .about-me {
             flex: 1;
             padding-right: 40px;
-        }
-        .about-me h1 {
+          }
+          .about-me h1 {
             font-size: 2.5em;
             margin-bottom: 10px;
             color: #ffffff;
-        }
-        .about-me p {
+          }
+          .about-me p {
             font-size: 1.1em;
             color: #b0b0b0;
-        }
-        .profile-image {
+          }
+          .profile-image {
             width: 200px;
             height: 200px;
             border-radius: 50%;
             object-fit: cover;
             border: 5px solid #3a3a3a;
-            box-shadow: 0 0 20px rgba(0,0,0,0.5);
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
             transition: transform 0.3s ease;
-        }
-        .profile-image:hover {
+          }
+          .profile-image:hover {
             transform: scale(1.05);
-        }
-        main {
+          }
+          main {
             background-color: #2c2c2c;
             border-radius: 10px;
             margin-top: 40px;
             padding: 40px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-        }
-        .section-title {
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+          }
+          .section-title {
             font-size: 2em;
             color: #ffffff;
             margin-bottom: 30px;
             text-align: center;
-        }
-        .skills {
+          }
+          .skills {
             display: flex;
             justify-content: center;
             flex-wrap: wrap;
             gap: 30px;
             margin-bottom: 40px;
-        }
-        .skill {
+          }
+          .skill {
             display: flex;
             flex-direction: column;
             align-items: center;
             transition: transform 0.3s ease;
-        }
-        .skill:hover {
+          }
+          .skill:hover {
             transform: scale(1.05);
-        }
-        .skill-icon {
+          }
+          .skill-icon {
             width: 80px;
             height: 80px;
             margin-bottom: 10px;
             background-color: #3a3a3a;
             padding: 10px;
             border-radius: 10px;
-        }
-        .skill-name {
+          }
+          .skill-name {
             font-weight: bold;
             color: #b0b0b0;
-        }
-        .education {
+          }
+          .education {
             background-color: #3a3a3a;
             padding: 30px;
             border-radius: 10px;
             margin-bottom: 40px;
-        }
-        .education-item {
+          }
+          .education-item {
             margin-bottom: 20px;
             padding: 20px;
             background-color: #2c2c2c;
             border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
-        }
-        .education-item h3 {
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+          }
+          .education-item h3 {
             margin: 0 0 10px 0;
             color: #ffffff;
-        }
-        .education-item p {
+          }
+          .education-item p {
             margin: 0;
             color: #b0b0b0;
-        }
-        .projects {
+          }
+          .projects {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 30px;
-        }
-        .project {
+          }
+          .project {
             background-color: #3a3a3a;
             border-radius: 8px;
             padding: 20px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
             transition: transform 0.3s ease;
-        }
-        .project:hover {
+          }
+          .project:hover {
             transform: translateY(-5px);
-        }
-        .project h3 {
+          }
+          .project h3 {
             margin-top: 0;
             color: #ffffff;
-        }
-        .project p {
+          }
+          .project p {
             color: #b0b0b0;
-        }
-        .project a {
+          }
+          .project a {
             display: inline-block;
             margin-top: 10px;
             color: #64b5f6;
             text-decoration: none;
             font-weight: bold;
-        }
-        .project a:hover {
+          }
+          .project a:hover {
             text-decoration: underline;
-        }
-        @media (max-width: 768px) {
+          }
+          .contact-info {
+        background-color: #3a3a3a;
+        padding: 30px;
+        border-radius: 10px;
+        margin-top: 40px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+      }
+
+      .contact-info p {
+        margin: 0 20px 0 0;
+        color: #b0b0b0;
+        display: flex;
+        align-items: center;
+        flex: 1 0 auto;
+      }
+
+      .contact-info a {
+        color: #64b5f6;
+        text-decoration: none;
+        font-weight: bold;
+        margin-left: 10px;
+      }
+
+      .contact-info a:hover {
+        text-decoration: underline;
+      }
+
+      .contact-icon {
+        width: 24px;
+        height: 24px;
+        margin-right: 10px;
+      }-decoration: underline;
+          }
+          @media (max-width: 768px) {
             .header-content {
-                flex-direction: column-reverse;
-                text-align: center;
+              flex-direction: column-reverse;
+              text-align: center;
             }
             .about-me {
-                padding-right: 0;
-                margin-top: 20px;
+              padding-right: 0;
+              margin-top: 20px;
             }
             .profile-image {
-                margin-bottom: 20px;
+              margin-bottom: 20px;
             }
-        }
+          }
     </style>
-</head>
-<body>
+  </head>
+  <body>
     <header>
-        <div class="container">
-            <div class="header-content">
-                <div class="about-me">
-                    <h1>Saša Vulić</h1>
-                    <p>Passionate web developer with a focus on creating intuitive and efficient user interfaces. Always looking for new challenges and learning opportunities.</p>
-                </div>
-                <img src="slike/image00002.jpeg" alt="Vaša profilna slika" class="profile-image">
-            </div>
+      <div class="container">
+        <div class="header-content">
+          <div class="about-me">
+            <h1>Saša Vulić</h1>
+            <p>
+              Passionate web developer with a focus on creating intuitive and
+              efficient user interfaces. Always looking for new challenges and
+              learning opportunities.
+            </p>
+          </div>
+          <img
+            src="slike/image00002.jpeg"
+            alt="Vaša profilna slika"
+            class="profile-image"
+          />
         </div>
+      </div>
     </header>
 
     <div class="container">
-        <main>
-            <section>
-                <h2 class="section-title">Skills</h2>
-                <div class="skills">
-                    <div class="skill">
-                        <img src="slike/html.png" alt="HTML" class="skill-icon">
-                        <span class="skill-name">HTML</span>
-                    </div>
-                    <div class="skill">
-                        <img src="slike/css.png" alt="CSS" class="skill-icon">
-                        <span class="skill-name">CSS</span>
-                    </div>
-                    <div class="skill">
-                        <img src="slike/js.png" alt="JavaScript" class="skill-icon">
-                        <span class="skill-name">JavaScript</span>
-                    </div>
-                    <div class="skill">
-                        <img src="slike/react.png" alt="React" class="skill-icon">
-                        <span class="skill-name">React</span>
-                    </div>
-                    <div class="skill">
-                        <img src="slike/sql.png" alt="SQL" class="skill-icon">
-                        <span class="skill-name">SQL</span>
-                    </div>
-                    <div class="skill">
-                        <img src="slike/bootstrap.png" alt="Bootstrap" class="skill-icon">
-                        <span class="skill-name">Bootstrap</span>
-                    </div>
-                    <div class="skill">
-                        <img src="slike/worpdres.png" alt="WordPress" class="skill-icon">
-                        <span class="skill-name">WordPress</span>
-                    </div>
-                </div>
-            </section>
+      <main>
+        <section>
+          <h2 class="section-title">Skills</h2>
+          <div class="skills">
+            <div class="skill">
+              <img src="slike/html.png" alt="HTML" class="skill-icon" />
+              <span class="skill-name">HTML</span>
+            </div>
+            <div class="skill">
+              <img src="slike/css.png" alt="CSS" class="skill-icon" />
+              <span class="skill-name">CSS</span>
+            </div>
+            <div class="skill">
+              <img src="slike/js.png" alt="JavaScript" class="skill-icon" />
+              <span class="skill-name">JavaScript</span>
+            </div>
+            <div class="skill">
+              <img src="slike/react.png" alt="React" class="skill-icon" />
+              <span class="skill-name">React</span>
+            </div>
+            <div class="skill">
+              <img src="slike/sql.png" alt="SQL" class="skill-icon" />
+              <span class="skill-name">SQL</span>
+            </div>
+            <div class="skill">
+              <img
+                src="slike/bootstrap.png"
+                alt="Bootstrap"
+                class="skill-icon"
+              />
+              <span class="skill-name">Bootstrap</span>
+            </div>
+            <div class="skill">
+              <img
+                src="slike/worpdres.png"
+                alt="WordPress"
+                class="skill-icon"
+              />
+              <span class="skill-name">WordPress</span>
+            </div>
+          </div>
+        </section>
 
-            <section class="education">
-                <h2 class="section-title">Education</h2>
-                <div class="education-item">
-                    <h3>College</h3>
-                    <p>Faculty of Technical Sciences</p>
-                    <p>Information technologies</p>
-                    <p>Year of graduation: 2024</p>
-                </div>
-                <div class="education-item">
-                    <h3>High school</h3>
-                    <p>Electrotechnical School - Nikola Tesla</p>
-                    <p>Multimedia electrical technician</p>
-                    <p>Year of graduation: 2021</p>
-                </div>
-            </section>
+        <section class="education">
+          <h2 class="section-title">Education</h2>
+          <div class="education-item">
+            <h3>College</h3>
+            <p>Faculty of Technical Sciences</p>
+            <p>Information technologies</p>
+            <p>Year of graduation: 2024</p>
+          </div>
+          <div class="education-item">
+            <h3>High school</h3>
+            <p>Electrotechnical School - Nikola Tesla</p>
+            <p>Multimedia electrical technician</p>
+            <p>Year of graduation: 2021</p>
+          </div>
+        </section>
 
-            <section>
-                <h2 class="section-title">Projects</h2>
-                <div class="projects">
-                    <div class="project">
-                        <h3>Site for selling jewelry</h3>
-                        <p>A school project - Site for selling jewelry</p>
-                        <a href="Katarina/index.html">Look at the project</a>
-                    </div>
+        <section>
+          <h2 class="section-title">Projects</h2>
+          <div class="projects">
+            <div class="project">
+              <h3>Site for selling jewelry</h3>
+              <p>A school project - Site for selling jewelry</p>
+              <a href="Katarina/index.html">Look at the project</a>
+            </div>
 
-                    <div class="project">
-                        <h3>Pharmacy site</h3>
-                        <p>A school project - Pharmacy site.</p>
-                        <a href="Jelena/index.html">Look at the project</a>
-                    </div>
+            <div class="project">
+              <h3>Pharmacy site</h3>
+              <p>A school project - Pharmacy site.</p>
+              <a href="Jelena/index.html">Look at the project</a>
+            </div>
 
-                    <div class="project">
-                        <h3>Hair Salon</h3>
-                        <p>School project Hair Salon.</p>
-                        <a href="Frizerski salon/index.html">Look at the project</a>
-                    </div>
-                    
-                </div>
-            </section>
-        </main>
+            <div class="project">
+              <h3>Online bookstore</h3>
+              <p>Graduation project.</p>
+              <a href="Diplomski/index.html">Look at the project</a>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <section>
+        <h2 class="section-title">Contact</h2>
+        <div class="contact-info">
+          <p>
+            <a href="https://www.instagram.com/mr.vulic/">
+              <img
+                src="slike/instagram.png"
+                alt="Instagram"
+                class="contact-icon"
+              />
+              @mr.vulic
+            </a>
+          </p>
+          <p>
+            <a href="https://www.linkedin.com/in/sasa-vulic-623367322/">
+              <img
+                src="slike/linkedin.png"
+                alt="LinkedIn"
+                class="contact-icon"
+              />
+              Saša Vulić
+            </a>
+          </p>
+          <p>
+            <a href="mailto:sasazvulic@gmail.com">
+              <img src="slike/gmail.png" alt="Email" class="contact-icon" />
+              sasazvulic@gmail.com
+            </a>
+          </p>
+          <a href="tel:+381638467816">
+            <img src="slike/telefon.png" alt="Phone" class="contact-icon" />
+            +381 63 8467816
+          </a>
+        </div>
+      </section>
     </div>
-</body>
+  </body>
 </html>
